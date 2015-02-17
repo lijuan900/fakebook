@@ -17,6 +17,7 @@ Meteor.publish("users", function (userid) {
 
 Meteor.publish("users", function (opts) {
    var userFields = { 
+    'username':1,
     'emails':1,
     'createdAt':1,
   };  

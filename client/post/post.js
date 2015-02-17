@@ -1,31 +1,21 @@
 
 Template.post.helpers({
-  'likeCount' : function (argument) {
+  'likeCount' : function () {
     // body...
     return Likes.find(this._id).count();
   },
-
   'postComments' : function () {
     // body...
     return Posts.find({parent: this._id});
   },
-
-  'getNameById' : function () {
-    Meteor.call('getUsernameById', this.owner, function (error, result) {
-      if (error) {
-        // handle error
-      } else {
-        // examine result
-        Session.set('post_username', result); 
-      }
-    });
-    return Session.get('post_username');
+  username: function () {
+    console.log ('this.owner: ', this.owner);
+    console.log ('dbg: ', Meteor.users.findOne(this.owner).username);
+    return Meteor.users.findOne(this.owner).username;
   },
-
-  get_avatar_url: function (usr) {
-    // http://momentjs.com/
-    return Avatar.getUrl(usr);
-  }
+  author: function (post) {
+    return Meteor.users.findOne(this.owner);
+  },
 });
 
 Template.post.events({
@@ -41,20 +31,10 @@ Template.post.events({
 })
 
 Template.postcomment.helpers({
-  'getNameById' : function () {
-    Meteor.call('getUsernameById', this.owner, function (error, result) {
-      if (error) {
-        // handle error
-      } else {
-        // examine result
-        Session.set('comment_username', result); 
-      }
-    });
-    return Session.get('comment_username');
+  'username' : function () {
+    return Meteor.users.findOne(this.owner).username;
   },
-
-  get_avatar_url: function (usr) {
-    // http://momentjs.com/
-    return Avatar.getUrl(usr);
-  }
+  author: function (post) {
+    return Meteor.users.findOne(post.owner);
+  },
 });
