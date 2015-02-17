@@ -5,7 +5,8 @@
     </a>
 
     <div class="media-body">
-      <h6>{{_id}}</h6>
+      <!-- <h6>{{_id}}</h6> -->
+      <h6>{{getNameById}}</h6>
       <p>{{text}}</p>
       <div class="media">
         {{#if likeCount}}
@@ -36,7 +37,7 @@
       <img src="http://g.twimg.com/Twitter_logo_blue.png" width="30px" class="img-rounded" alt="#" />
     </a>
 
-    <p class="muted commentUser">{{_id}}</p>
+    <p class="muted commentUser">{{getNameById}}</p>
     <p class="muted commentText">{{text}}</p>
   </li>
 

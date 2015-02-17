@@ -19,3 +19,4 @@ Router.route('/events', function () {
   this.render('events');
 });
 
+Accounts.ui.config({ passwordSignupFields: 'USERNAME_AND_EMAIL' });
