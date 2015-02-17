@@ -1,0 +1,21 @@
+<template name="navigation">
+  <div class="navbar navbar-static-top">
+    <div class="navbar-inner">
+      <a class="brand" href="/">Fakebook</a>
+      <ul class="nav">
+        <li><a href="/">Message Board</a></li>
+
+        <li>
+        <a>
+        {{#if currentUser}}
+          Welcome {{email}}
+        {{/if}}
+        </a>
+        </li>
+      </ul>
+
+      
+    </div>
+
+  </div>
+</template>

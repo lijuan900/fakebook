@@ -1,0 +1,8 @@
+
+meteor-platform
+
+bootstrap
+jquery
+iron:router
+accounts-ui
+accounts-password
